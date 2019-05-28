@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Notification Filter Plus</string>
+    <string name="open_access_settings">Open Notification Access Settings</string>
+    <string name="send_test_notification">Send test notification</string>
+</resources>
