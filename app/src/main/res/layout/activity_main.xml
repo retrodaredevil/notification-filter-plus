@@ -19,7 +19,8 @@
             <Button
                     android:text="@string/send_test_notification"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:id="@+id/send_test_notification"/>
+                    android:layout_height="wrap_content" android:id="@+id/send_test_notification"
+                    android:onClick="onSendTestNotification"/>
         </LinearLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>

@@ -1,4 +1,4 @@
-package me.retrodaredevil.notificationfilter.match
+package me.retrodaredevil.notificationfilter
 
 import android.service.notification.StatusBarNotification
 

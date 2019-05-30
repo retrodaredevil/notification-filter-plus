@@ -1,21 +1,32 @@
-package me.retrodaredevil.notificationfilter.match
+package me.retrodaredevil.notificationfilter.implementations
 
 import android.service.notification.StatusBarNotification
 import me.retrodaredevil.notificationfilter.getContentText
 import me.retrodaredevil.notificationfilter.getContentTitle
+import me.retrodaredevil.notificationfilter.NotificationMatcher
 
 val SnapchatMatcher = PackageNameMatcher("com.snapchat.android")
 
 /**
  * Filters for only snaps, not texts/messages
  */
-val SnapchatSnapMatcher = AndMatcher(SnapchatMatcher, ColorMatcher(-902057))
+val SnapchatSnapMatcher = AndMatcher(
+    SnapchatMatcher,
+    ColorMatcher(-902057)
+)
 /**
  * Matches for only
  */
-val SnapchatMessageMatcher = AndMatcher(SnapchatMatcher, ColorMatcher(-15815169))
+val SnapchatMessageMatcher = AndMatcher(
+    SnapchatMatcher,
+    ColorMatcher(-15815169)
+)
 
-val SnapchatTypingMatcher = NotificationMatcher { SnapchatMatcher.isMatch(it) && it.notification.getContentText()?.endsWith("is typing...") ?: false }
+val SnapchatTypingMatcher = NotificationMatcher {
+    SnapchatMatcher.isMatch(it) && it.notification.getContentText()?.endsWith(
+        "is typing..."
+    ) ?: false
+}
 
 object SnapchatAnyGroupMatcher : NotificationMatcher {
     override fun isMatch(sbn: StatusBarNotification): Boolean {

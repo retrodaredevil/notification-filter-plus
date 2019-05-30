@@ -1,0 +1,11 @@
+{
+  "matcherType": "and",
+  "fields": {
+    "matchers": [
+      {
+        "matcherType": "package.name.matcher",
+        "fields": {"packageName": "com.snapchat.android"}
+      }
+    ]
+  }
+}

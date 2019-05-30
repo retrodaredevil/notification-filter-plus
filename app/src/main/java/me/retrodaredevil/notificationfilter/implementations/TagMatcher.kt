@@ -1,6 +1,7 @@
-package me.retrodaredevil.notificationfilter.match
+package me.retrodaredevil.notificationfilter.implementations
 
 import android.service.notification.StatusBarNotification
+import me.retrodaredevil.notificationfilter.NotificationMatcher
 
 class TagMatcher(
     private val tag: String?

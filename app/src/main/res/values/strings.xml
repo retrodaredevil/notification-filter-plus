@@ -2,4 +2,11 @@
     <string name="app_name">Notification Filter Plus</string>
     <string name="open_access_settings">Open Notification Access Settings</string>
     <string name="send_test_notification">Send test notification</string>
+    <string name="notification_test_channel">Test Notification</string>
+    <string name="test_notification_big_text">Big text\nBig text\nBig text</string>
+    <string name="test_notification_big_test_content_title">Big Text Content Title</string>
+    <string name="test_notification_big_test_summary">Big Text Summary</string>
+    <string name="test_notification_content_title">Content Title</string>
+    <string name="test_notification_sub_text">Sub Text</string>
+    <string name="test_notification_content_text">Content Text</string>
 </resources>
