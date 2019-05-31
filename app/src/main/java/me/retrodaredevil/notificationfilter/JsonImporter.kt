@@ -4,9 +4,10 @@ import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import me.retrodaredevil.notificationfilter.data.MatcherData
 import me.retrodaredevil.notificationfilter.implementations.AndMatcherType
+import me.retrodaredevil.notificationfilter.implementations.ContainsMatcherType
 import me.retrodaredevil.notificationfilter.implementations.PackageNameMatcherType
 
-private val BUILT_IN_MATCHERS = listOf(AndMatcherType, PackageNameMatcherType)
+private val BUILT_IN_MATCHERS = listOf(AndMatcherType, PackageNameMatcherType, ContainsMatcherType)
 
 fun getBuiltInMatcherData(matcherTypeName: String): MatcherData? {
     val matcherType = BUILT_IN_MATCHERS.firstOrNull { it.name == matcherTypeName } ?: return null

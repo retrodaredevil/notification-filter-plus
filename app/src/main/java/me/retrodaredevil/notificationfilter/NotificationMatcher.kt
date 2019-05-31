@@ -2,7 +2,11 @@ package me.retrodaredevil.notificationfilter
 
 import android.service.notification.StatusBarNotification
 
-@FunctionalInterface
+/**
+ * A [NotificationMatcher] represents a simple object with a single function: to return true or false. It does not
+ * store information on how to replicate its behavior (it cannot save itself). For that functionality, look at
+ * [me.retrodaredevil.notificationfilter.data.MatcherData]
+ */
 interface NotificationMatcher {
     companion object {
         operator fun invoke(f: (StatusBarNotification) -> Boolean): NotificationMatcher {

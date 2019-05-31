@@ -9,4 +9,6 @@
     <string name="test_notification_content_title">Content Title</string>
     <string name="test_notification_sub_text">Sub Text</string>
     <string name="test_notification_content_text">Content Text</string>
+
+    <string name="NULL_TODO">null</string>
 </resources>

@@ -10,10 +10,11 @@ abstract class SimpleMatcherData(
         val allowed = when(type){
             DataType.LIST -> value is List<*> // we won't check each item to make sure it's OK, we'll just assume it is
             DataType.BOOLEAN -> value is Boolean
-            DataType.ENUM -> throw UnsupportedOperationException()
+            DataType.ENUM -> TODO("enum not implemented")
             DataType.NUMBER -> value is Number
             DataType.MATCHER -> value is MatcherData
             DataType.STRING -> value is String
+            DataType.STRING_PROVIDER -> value is String // the value stored will be the name of the provider
         }
         if(!allowed) throw IllegalArgumentException("value: $value is not supported for type: $type of key: $key")
         map[key] = value
@@ -31,11 +32,12 @@ abstract class SimpleMatcherData(
                 val listExtra = field.extra as ListExtra
                 return listExtra.requiredSizeAtLeast <= value.size
             }
-            DataType.ENUM -> throw UnsupportedOperationException()
+            DataType.ENUM -> TODO("enum not implemented")
             DataType.STRING -> true
             DataType.MATCHER -> (value as MatcherData).isValid
             DataType.BOOLEAN -> true
             DataType.NUMBER -> true
+            DataType.STRING_PROVIDER -> key in PROVIDER_TYPE_MAP
         }
     }
 

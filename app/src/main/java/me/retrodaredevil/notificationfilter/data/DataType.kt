@@ -13,4 +13,5 @@ enum class DataType {
      *The choices are in [DataField.extra].
      */
     ENUM,
+    STRING_PROVIDER
 }

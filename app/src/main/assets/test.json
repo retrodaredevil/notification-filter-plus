@@ -5,6 +5,14 @@
       {
         "matcherType": "package.name.matcher",
         "fields": {"packageName": "com.snapchat.android"}
+      },
+      {
+        "matcherType": "contains.matcher",
+        "fields": {
+          "stringProvider": "text.provider",
+          "containsText": "is typing...",
+          "ignoreCase": false
+        }
       }
     ]
   }

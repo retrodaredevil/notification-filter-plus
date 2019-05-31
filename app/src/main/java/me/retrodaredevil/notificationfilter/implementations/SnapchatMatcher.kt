@@ -1,8 +1,8 @@
 package me.retrodaredevil.notificationfilter.implementations
 
 import android.service.notification.StatusBarNotification
-import me.retrodaredevil.notificationfilter.getContentText
-import me.retrodaredevil.notificationfilter.getContentTitle
+import me.retrodaredevil.notificationfilter.getText
+import me.retrodaredevil.notificationfilter.getTitle
 import me.retrodaredevil.notificationfilter.NotificationMatcher
 
 val SnapchatMatcher = PackageNameMatcher("com.snapchat.android")
@@ -23,19 +23,19 @@ val SnapchatMessageMatcher = AndMatcher(
 )
 
 val SnapchatTypingMatcher = NotificationMatcher {
-    SnapchatMatcher.isMatch(it) && it.notification.getContentText()?.endsWith(
+    SnapchatMatcher.isMatch(it) && it.notification.getText()?.endsWith(
         "is typing..."
     ) ?: false
 }
 
 object SnapchatAnyGroupMatcher : NotificationMatcher {
     override fun isMatch(sbn: StatusBarNotification): Boolean {
-        return SnapchatMatcher.isMatch(sbn) && sbn.notification.getContentTitle() != "Snapchat"
+        return SnapchatMatcher.isMatch(sbn) && sbn.notification.getTitle() != "Snapchat"
     }
 }
 object SnapchatAnyPrivateMessageMatcher : NotificationMatcher {
     override fun isMatch(sbn: StatusBarNotification): Boolean {
-        val title = sbn.notification.getContentTitle()
+        val title = sbn.notification.getTitle()
         println("title is: '$title'")
         return SnapchatMatcher.isMatch(sbn) && title == "Snapchat"
     }
