@@ -5,8 +5,8 @@
     <string name="field_package_name">Package Name</string>
     <string name="field_package_name_description">The package name of an app to match</string>
 
-    <string name="and">and</string>
-    <string name="and_description">Takes multiple matchers as parameters and matches only if all are matches.</string>
+    <string name="all">all</string>
+    <string name="all_description">Takes multiple matchers as parameters and matches only if all are matches.</string>
     <string name="package_name">Package Name</string>
     <string name="package_name_description">Matches a notification from a certain app.</string>
 </resources>

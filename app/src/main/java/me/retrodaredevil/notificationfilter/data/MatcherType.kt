@@ -33,7 +33,7 @@ class FieldInfo(
     val displayName: Int,
     val description: Int
 )
-class SimpleMatcherType(
+open class SimpleMatcherType(
     private val fieldInfoSet: Set<FieldInfo>,
     override val name: String,
     private val displayName: Int,

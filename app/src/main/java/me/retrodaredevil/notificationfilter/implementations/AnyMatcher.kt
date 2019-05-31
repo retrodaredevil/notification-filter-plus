@@ -1,20 +1,21 @@
 package me.retrodaredevil.notificationfilter.implementations
 
 import android.service.notification.StatusBarNotification
+import me.retrodaredevil.notificationfilter.NotificationMatcher
 import me.retrodaredevil.notificationfilter.R
 import me.retrodaredevil.notificationfilter.data.*
-import me.retrodaredevil.notificationfilter.NotificationMatcher
 
-class AndMatcher(
+class AnyMatcher(
     private val matchers: Collection<NotificationMatcher>
 ) : NotificationMatcher {
     constructor(vararg matchers: NotificationMatcher) : this(listOf(*matchers))
+
     override fun isMatch(sbn: StatusBarNotification): Boolean {
-        return matchers.all { it.isMatch(sbn) }
+        return matchers.any { it.isMatch(sbn) }
     }
 
 }
-val AndMatcherType = SimpleMatcherType(
+val AnyMatcherType = SimpleMatcherType(
     setOf(
         FieldInfo(
             DataField("matchers", DataType.LIST, ListExtra(DataType.MATCHER, 1)),
@@ -22,18 +23,17 @@ val AndMatcherType = SimpleMatcherType(
             R.string.field_matchers_description
         )
     ),
-    "and",
-    R.string.and,
-    R.string.and_description
-) { AndMatcherData() }
+    "any",
+    R.string.all,
+    R.string.all_description
+) { AnyMatcherData() }
 
-private class AndMatcherData : SimpleMatcherData(AndMatcherType) {
+private class AnyMatcherData : SimpleMatcherData(AnyMatcherType) {
     override val isValid: Boolean
         get() = super.isValid && (this["matchers"] as List<*>?)?.all { (it as MatcherData).isValid} ?: false
 
     override fun createMatcher(): NotificationMatcher {
         val list = this["matchers"]!! as List<*>
-        return AndMatcher(list.map { (it as MatcherData).createMatcher() })
+        return AnyMatcher(list.map { (it as MatcherData).createMatcher() })
     }
-
 }

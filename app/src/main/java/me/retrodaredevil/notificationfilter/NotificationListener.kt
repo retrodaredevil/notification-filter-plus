@@ -14,13 +14,13 @@ class NotificationListener : NotificationListenerService() {
     May be helpful for later: https://stackoverflow.com/questions/44197274/android-notificationlistenerservice-prevent-notification-from-being-displayed
      */
     private lateinit var matcher: NotificationMatcher
-//    private val matcher = OrMatcher(
+//    private val matcher = AnyMatcher(
 //        SnapchatTypingMatcher,
-//        AndMatcher(
+//        AllMatcher(
 //            SnapchatAnyGroupMatcher,
 //            SnapchatSnapMatcher
 //        ),
-//        AndMatcher(
+//        AllMatcher(
 //            PackageNameMatcher(
 //                "com.android.systemui"
 //            ), TagMatcher("charging_state")

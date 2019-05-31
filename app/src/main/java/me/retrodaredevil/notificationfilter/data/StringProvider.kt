@@ -18,13 +18,16 @@ val SubTextProvider: StringProvider = { it.notification.getSubText() }
 val BigTitleProvider: StringProvider = { it.notification.getBigTitle() }
 val BigTextProvider: StringProvider = { it.notification.getBigText() }
 
+val TagProvider: StringProvider = { it.tag }
+
 val PackageNameProviderType = SimpleStringProviderType("package.name.provider", PackageNameProvider, R.string.NULL_TODO, R.string.NULL_TODO)
 val TitleProviderType = SimpleStringProviderType("title.provider", TitleProvider, R.string.NULL_TODO, R.string.NULL_TODO)
 val TextProviderType = SimpleStringProviderType("text.provider", TextProvider, R.string.NULL_TODO, R.string.NULL_TODO)
+val TagProviderType = SimpleStringProviderType("tag.provider", TagProvider, R.string.NULL_TODO, R.string.NULL_TODO)
 
 val PROVIDER_TYPE_MAP: Map<String, StringProviderType> = run {
     val map = mutableMapOf<String, StringProviderType>()
-    for(stringProviderType in listOf(PackageNameProviderType, TitleProviderType, TextProviderType)){
+    for(stringProviderType in listOf(PackageNameProviderType, TitleProviderType, TextProviderType, TagProviderType)){
         map[stringProviderType.name] = stringProviderType
     }
     unmodifiableMap(map)

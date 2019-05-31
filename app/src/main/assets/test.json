@@ -1,5 +1,5 @@
 {
-  "matcherType": "and",
+  "matcherType": "all",
   "fields": {
     "matchers": [
       {
@@ -7,12 +7,25 @@
         "fields": {"packageName": "com.snapchat.android"}
       },
       {
-        "matcherType": "contains.matcher",
-        "fields": {
-          "stringProvider": "text.provider",
-          "containsText": "is typing...",
-          "ignoreCase": false
-        }
+        "matcherType": "any",
+        "fields": { "matchers": [
+          {
+            "matcherType": "ends.with.matcher",
+            "fields": {
+              "stringProvider": "text.provider",
+              "text": "is typing...",
+              "ignoreCase": false
+            }
+          },
+          {
+            "matcherType": "equals.matcher",
+            "fields": {
+              "stringProvider": "title.provider",
+              "text": "Snapchat nvm",
+              "ignoreCase": false
+            }
+          }
+        ]}
       }
     ]
   }

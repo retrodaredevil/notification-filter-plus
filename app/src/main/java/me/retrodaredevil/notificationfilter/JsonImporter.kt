@@ -3,11 +3,12 @@ package me.retrodaredevil.notificationfilter
 import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import me.retrodaredevil.notificationfilter.data.MatcherData
-import me.retrodaredevil.notificationfilter.implementations.AndMatcherType
-import me.retrodaredevil.notificationfilter.implementations.ContainsMatcherType
-import me.retrodaredevil.notificationfilter.implementations.PackageNameMatcherType
+import me.retrodaredevil.notificationfilter.implementations.*
 
-private val BUILT_IN_MATCHERS = listOf(AndMatcherType, PackageNameMatcherType, ContainsMatcherType)
+private val BUILT_IN_MATCHERS = listOf(
+    AllMatcherType, AnyMatcherType, NotMatcherType, PackageNameMatcherType,
+    ContainsMatcherType, EndsWithMatcherType, StartsWithMatcherType, EqualsMatcherType
+)
 
 fun getBuiltInMatcherData(matcherTypeName: String): MatcherData? {
     val matcherType = BUILT_IN_MATCHERS.firstOrNull { it.name == matcherTypeName } ?: return null
@@ -30,7 +31,7 @@ fun getValueFromRaw(value: JsonElement): Any{
             return array.asIterable().map { getValueFromRaw(it!!) }
         }
         value.isJsonObject -> return importFromJson(value.asJsonObject)
-        value.isJsonNull -> throw UnsupportedOperationException("null not supported yet!")
+        value.isJsonNull -> TODO("null not supported")
         value.isJsonPrimitive -> {
             val prim = value.asJsonPrimitive
             when {

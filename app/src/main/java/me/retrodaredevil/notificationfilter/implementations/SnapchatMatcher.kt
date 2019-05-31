@@ -10,14 +10,14 @@ val SnapchatMatcher = PackageNameMatcher("com.snapchat.android")
 /**
  * Filters for only snaps, not texts/messages
  */
-val SnapchatSnapMatcher = AndMatcher(
+val SnapchatSnapMatcher = AllMatcher(
     SnapchatMatcher,
     ColorMatcher(-902057)
 )
 /**
  * Matches for only
  */
-val SnapchatMessageMatcher = AndMatcher(
+val SnapchatMessageMatcher = AllMatcher(
     SnapchatMatcher,
     ColorMatcher(-15815169)
 )
