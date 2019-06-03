@@ -21,6 +21,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" android:id="@+id/send_test_notification"
                     android:onClick="onSendTestNotification"/>
+            <Button
+                    android:text="Temporary Open Edit Matcher Data"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:id="@+id/open_edit"
+                    android:onClick="onOpenEditMatcherData"/>
         </LinearLayout>
     </ScrollView>
 </android.support.constraint.ConstraintLayout>

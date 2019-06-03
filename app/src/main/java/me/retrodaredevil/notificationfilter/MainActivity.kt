@@ -53,6 +53,11 @@ class MainActivity : AppCompatActivity() {
                 .build()
         )
     }
+    fun onOpenEditMatcherData(view: View){
+        val intent = Intent(this, EditMatcherData::class.java)
+        intent.putExtra(EditMatcherData.JSON_DATA, "TODO json data")
+        startActivity(intent)
+    }
     private fun getBuilder(): Notification.Builder {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             return Notification.Builder(this, TEST_CHANNEL)
