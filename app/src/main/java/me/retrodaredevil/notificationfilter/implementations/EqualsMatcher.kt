@@ -19,6 +19,6 @@ private class EqualsMatcher(
 
 val EqualsMatcherType = createStringProviderMatcherType(
     "equals.matcher",
-    R.string.NULL_TODO,
-    R.string.NULL_TODO
+    R.string.matcher_equals,
+    R.string.matcher_equals_description
 ) { StringProviderMatcherData(it, ::EqualsMatcher) }

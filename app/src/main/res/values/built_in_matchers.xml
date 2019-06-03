@@ -2,11 +2,30 @@
 <resources>
     <string name="field_matchers">matchers</string>
     <string name="field_matchers_description">A list of matchers</string>
-    <string name="field_package_name">Package Name</string>
+    <string name="field_matcher">matcher</string>
+    <string name="field_matcher_description">The matcher</string>
+    <string name="field_package_name">package Name</string>
     <string name="field_package_name_description">The package name of an app to match</string>
+
 
     <string name="all">all</string>
     <string name="all_description">Takes multiple matchers as parameters and matches only if all are matches.</string>
-    <string name="package_name">Package Name</string>
+
+    <string name="package_name">package Name</string>
     <string name="package_name_description">Matches a notification from a certain app.</string>
+
+    <string name="matcher_equals">equals</string>
+    <string name="matcher_equals_description">Equals the same text</string>
+
+    <string name="matcher_starts_with">starts with</string>
+    <string name="matcher_starts_with_description">The text starts with the provided text</string>
+
+    <string name="matcher_contains">contains</string>
+    <string name="matcher_contains_description">The text contains the provided text</string>
+
+    <string name="matcher_not">not</string>
+    <string name="matcher_not_description">Inverts the provided matcher</string>
+
+    <string name="matcher_ends_with">ends with</string>
+    <string name="matcher_ends_with_description">Matches if the text ends with the provided text</string>
 </resources>

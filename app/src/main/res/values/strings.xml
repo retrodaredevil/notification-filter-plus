@@ -10,5 +10,8 @@
     <string name="test_notification_sub_text">Sub Text</string>
     <string name="test_notification_content_text">Content Text</string>
 
+    <string name="matcher_data_done">Done</string>
+    <string name="matcher_data_save_as">Save as</string>
+
     <string name="NULL_TODO">null</string>
 </resources>

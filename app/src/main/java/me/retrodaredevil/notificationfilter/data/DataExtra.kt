@@ -18,5 +18,6 @@ class EnumExtra(
 
 class ListExtra(
     val type: DataType,
+    val extra: DataExtra? = null,
     val requiredSizeAtLeast: Int = 0
 ) : DataExtra

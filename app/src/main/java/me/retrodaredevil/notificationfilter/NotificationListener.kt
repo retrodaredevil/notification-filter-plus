@@ -10,6 +10,9 @@ import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
 
 class NotificationListener : NotificationListenerService() {
+    companion object {
+        private val GSON = GsonBuilder().create()
+    }
     /*
     May be helpful for later: https://stackoverflow.com/questions/44197274/android-notificationlistenerservice-prevent-notification-from-being-displayed
      */
@@ -29,8 +32,7 @@ class NotificationListener : NotificationListenerService() {
     override fun onCreate() {
         println("created notification listener!")
         val stream = assets.open("test.json")
-        val gson = GsonBuilder().create()
-        val json = gson.fromJson(InputStreamReader(stream), JsonObject::class.java)
+        val json = GSON.fromJson(InputStreamReader(stream), JsonObject::class.java)
         matcher = importFromJson(json).createMatcher()
     }
     override fun onNotificationPosted(sbn: StatusBarNotification?) {

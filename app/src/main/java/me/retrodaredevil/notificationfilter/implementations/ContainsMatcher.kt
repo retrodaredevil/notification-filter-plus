@@ -19,6 +19,6 @@ private class ContainsMatcher(
 
 val ContainsMatcherType = createStringProviderMatcherType(
     "contains.matcher",
-    R.string.NULL_TODO,
-    R.string.NULL_TODO
+    R.string.matcher_contains,
+    R.string.matcher_contains_description
 ) { StringProviderMatcherData(it, ::ContainsMatcher) }

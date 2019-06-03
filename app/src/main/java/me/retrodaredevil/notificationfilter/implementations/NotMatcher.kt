@@ -24,11 +24,11 @@ val NotMatcherType = SimpleMatcherType(
     setOf(
         FieldInfo(
             DataField("matcher", DataType.MATCHER),
-            R.string.NULL_TODO,
-            R.string.NULL_TODO
+            R.string.field_matcher,
+            R.string.field_matcher_description
         )
     ),
     "not.matcher",
-    R.string.NULL_TODO,
-    R.string.NULL_TODO
+    R.string.matcher_not,
+    R.string.matcher_not_description
 ) { NotMatcherData() }

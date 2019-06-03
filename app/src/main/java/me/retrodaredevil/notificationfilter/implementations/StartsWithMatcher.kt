@@ -19,6 +19,6 @@ private class StartsWithMatcher(
 
 val StartsWithMatcherType = createStringProviderMatcherType(
     "starts.with.matcher",
-    R.string.NULL_TODO,
-    R.string.NULL_TODO
+    R.string.matcher_starts_with,
+    R.string.matcher_starts_with_description
 ) { StringProviderMatcherData(it, ::StartsWithMatcher) }

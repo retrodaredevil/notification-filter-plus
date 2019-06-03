@@ -17,7 +17,7 @@ class AllMatcher(
 val AllMatcherType = SimpleMatcherType(
     setOf(
         FieldInfo(
-            DataField("matchers", DataType.LIST, ListExtra(DataType.MATCHER, 1)),
+            DataField("matchers", DataType.LIST, ListExtra(DataType.MATCHER, null, 1)),
             R.string.field_matchers,
             R.string.field_matchers_description
         )

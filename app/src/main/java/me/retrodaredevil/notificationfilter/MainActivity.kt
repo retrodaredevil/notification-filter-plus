@@ -7,14 +7,20 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Build
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
+import android.support.v7.app.AppCompatActivity
 import android.view.View
+import com.google.gson.GsonBuilder
+import com.google.gson.JsonObject
 
-private const val TEST_CHANNEL = "test_channel"
 
 class MainActivity : AppCompatActivity() {
+    companion object {
+        private const val TEST_CHANNEL = "test_channel"
+        private const val RC_EDIT_MATCHER_DATA = 13600
+        private val GSON = GsonBuilder().create()
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,8 +61,8 @@ class MainActivity : AppCompatActivity() {
     }
     fun onOpenEditMatcherData(view: View){
         val intent = Intent(this, EditMatcherData::class.java)
-        intent.putExtra(EditMatcherData.JSON_DATA, "TODO json data")
-        startActivity(intent)
+        intent.putExtra(EditMatcherData.JSON_DATA, assets.open("test.json").readToString())
+        startActivityForResult(intent, RC_EDIT_MATCHER_DATA)
     }
     private fun getBuilder(): Notification.Builder {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -65,4 +71,21 @@ class MainActivity : AppCompatActivity() {
         return Notification.Builder(this)
     }
     private fun getManager() = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if(requestCode == RC_EDIT_MATCHER_DATA){
+            when (resultCode) {
+                RESULT_OK -> {
+                    data!!
+                    val jsonData = data.getStringExtra(EditMatcherData.JSON_DATA)
+                    println("got back jsonData: $jsonData")
+                    val matcherData = importFromJson(GSON.fromJson(jsonData, JsonObject::class.java))
+                }
+                RESULT_CANCELED -> {
+                    println("canceled edit matcher data")
+                }
+                else -> System.err.println("unknown resultCode: $resultCode")
+            }
+        }
+    }
 }

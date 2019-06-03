@@ -7,25 +7,12 @@
         "fields": {"packageName": "com.snapchat.android"}
       },
       {
-        "matcherType": "any",
-        "fields": { "matchers": [
-          {
-            "matcherType": "ends.with.matcher",
-            "fields": {
-              "stringProvider": "text.provider",
-              "text": "is typing...",
-              "ignoreCase": false
-            }
-          },
-          {
-            "matcherType": "equals.matcher",
-            "fields": {
-              "stringProvider": "title.provider",
-              "text": "Snapchat nvm",
-              "ignoreCase": false
-            }
-          }
-        ]}
+        "matcherType": "ends.with.matcher",
+        "fields": {
+          "stringProvider": "text.provider",
+          "text": "is typing...",
+          "ignoreCase": false
+        }
       }
     ]
   }

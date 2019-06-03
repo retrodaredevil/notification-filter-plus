@@ -19,6 +19,6 @@ private class EndsWithMatcher(
 
 val EndsWithMatcherType = createStringProviderMatcherType(
     "ends.with.matcher",
-    R.string.NULL_TODO,
-    R.string.NULL_TODO
+    R.string.matcher_ends_with,
+    R.string.matcher_ends_with_description
 ) { StringProviderMatcherData(it, ::EndsWithMatcher) }
